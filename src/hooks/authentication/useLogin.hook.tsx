@@ -29,7 +29,7 @@ export function useLogin(
     subId &&
       apis.authentication
         .login(subId)
-        .then((res) => {
+        .then(() => {
           if (!isMounted) return;
 
           setAction(loginActions.login);
