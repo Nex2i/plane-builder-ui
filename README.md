@@ -1,4 +1,4 @@
-# react-template
+# plane-builder
 
 This template is to be used for any new projects.
 
