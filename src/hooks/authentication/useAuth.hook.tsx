@@ -1,6 +1,6 @@
+import { useEffect, useState } from 'react';
 import { IAuthenticationState } from '@/stores/sliceTypes/Authentication.type';
 import { authenticationSelector } from '@/stores/slices/Authentication.slice';
-import { useEffect, useState } from 'react';
 
 type hookResponse = { user: IAuthenticationState; error: any; isAuthenticated: boolean };
 export function useAuth(): hookResponse {

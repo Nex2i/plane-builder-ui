@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ApiContext } from '@/apis/api.context';
@@ -6,11 +5,12 @@ import { homeRoute } from '@/routes/RouteConstants';
 import { setSnackbarProps } from '@/stores/slices/SnackBar.slice';
 import { useAppDispatch } from '@/stores/store.hooks';
 import { UserModel } from '@/types/models/authentication/user.model';
+import { useAuth } from './useAuth.hook';
 
 export function useRegisterUser(submitRegistration: boolean, setIsFetching: (fetching: boolean) => void) {
   const apis = useContext(ApiContext);
   const navigate = useNavigate();
-  const { user, logout } = useAuth0();
+  const { user } = useAuth();
 
   const [userModel, setUserModel] = useState<UserModel>();
   const dispatch = useAppDispatch();
@@ -18,7 +18,7 @@ export function useRegisterUser(submitRegistration: boolean, setIsFetching: (fet
   useEffect(() => {
     const isMounted = true;
     if (!submitRegistration) return;
-    if (!user?.sub) return;
+    if (!user?.token) return;
 
     setIsFetching(true);
 
@@ -54,7 +54,7 @@ export function useRegisterUser(submitRegistration: boolean, setIsFetching: (fet
 
           setIsFetching(false);
         });
-  }, [user?.sub, submitRegistration]);
+  }, [user?.token, submitRegistration]);
 
   function handleUserExists() {
     dispatch(
@@ -64,7 +64,7 @@ export function useRegisterUser(submitRegistration: boolean, setIsFetching: (fet
         severity: 'error',
       })
     );
-    logout();
+    // logout();
   }
 
   return userModel;

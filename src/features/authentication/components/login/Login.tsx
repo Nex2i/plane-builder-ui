@@ -1,70 +1,61 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import { Typography } from '@mui/material';
-import { FC, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Button, Typography } from '@mui/material';
+import { FC, useState, useEffect } from 'react';
 
+import { FieldValues } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { FormFilledInput } from '@/libs/forms/formFilledComponents';
 import { LoadingComponent } from '@/components/loading/Loading.Component';
-import { loginActions, useLogin } from '@/hooks/authentication/useLogin.hook';
-import { authRoutes, homeRoute } from '@/routes/RouteConstants';
-import siteLogo from '@/assets/siteLogo';
-import { AuthButton } from '../Auth.button';
+import { useLogin } from '@/hooks/authentication/useLogin.hook';
+import { homeRoute } from '@/routes/RouteConstants';
 import * as Styled from '../auth.styles';
+import { loginFormFields, useLoginForm } from './loginForm';
 
 interface LoginProps {}
 
 export const Login: FC<LoginProps> = ({}) => {
-  const { loginWithRedirect, isAuthenticated, isLoading, user } = useAuth0();
-  const [authId, setAuthId] = useState<string>();
-  const [isFetching, setIsFetching] = useState<boolean>(false);
-
   const navigate = useNavigate();
-
-  const action = useLogin(authId, setIsFetching);
-
-  useEffect(() => {
-    if (!isFetching && isAuthenticated && user) {
-      setAuthId(user.sub);
-    }
-  }, [isAuthenticated, user, isFetching]);
+  const [formValues, setFormValues] = useState<{ username: string; password: string }>({ username: '', password: '' });
+  const [_, isAuthorizing, isAuthorized] = useLogin(formValues.username, formValues.password);
 
   useEffect(() => {
-    if (!isFetching && isAuthenticated) {
-      handleActionNavigation();
+    if (isAuthorized) {
+      navigate(homeRoute);
     }
-  }, [isFetching, action, isAuthenticated]);
+  }, [isAuthorized]);
 
-  const handleActionNavigation = () => {
-    switch (action) {
-      case loginActions.register:
-        navigate(authRoutes.register + '?action=not-found');
-        break;
-      case loginActions.login:
-        navigate(homeRoute);
-        break;
-      default:
-        break;
-    }
+  const { handleSubmit, control } = useLoginForm({
+    username: '',
+    password: '',
+  });
+
+  const google = () => {
+    window.open('http://localhost:8085/api/auth/v1/open/passport/google', '_self');
   };
 
-  const login = () => {
-    if (!isAuthenticated) loginWithRedirect();
+  const handleValidForm = (formData: FieldValues) => {
+    const formInfo = loginFormFields.createEditSaveRequest(formData);
+    setFormValues(formInfo);
   };
 
-  if (isLoading || isAuthenticated || isFetching) return <LoadingComponent />;
+  const handleInvalidForm = (formData: FieldValues) => {
+    console.log('invalid form', formData);
+  };
+  const onSubmitForm = handleSubmit(handleValidForm, handleInvalidForm);
 
   return (
-    !isAuthenticated && (
-      <Styled.AuthCardContainer>
-        <Styled.LogoContainer srcSet={siteLogo} alt="temporary-site-logo" />
-        <div>
-          <Typography variant={'h2'}>Sign in</Typography>
-          <Typography variant={'body2'}>Accomplish Your Dreams Here!</Typography>
-        </div>
-        <AuthButton onClick={() => login()} text="Login" />
-        <Typography variant="body2">
-          Don't have an account? <Styled.Link onClick={() => navigate(authRoutes.register)}>Sign up</Styled.Link>
-        </Typography>
-      </Styled.AuthCardContainer>
-    )
+    <div>
+      <Styled.BaseForm onSubmit={onSubmitForm}>
+        <Typography variant={'h2'}>Sign in</Typography>
+        <FormFilledInput fieldMapping={loginFormFields.username} control={control} />
+        <FormFilledInput fieldMapping={loginFormFields.password} control={control} />
+        {isAuthorizing && <LoadingComponent animateOnly={true} />}
+        <Button color="secondary" onClick={onSubmitForm} data-cy="cancel-edit-btn">
+          Login
+        </Button>
+        <Button onClick={google} data-cy="save-pokemon-btn">
+          Register
+        </Button>
+      </Styled.BaseForm>
+    </div>
   );
 };

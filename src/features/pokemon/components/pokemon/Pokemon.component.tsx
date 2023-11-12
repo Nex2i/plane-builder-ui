@@ -4,9 +4,9 @@ import { Typography } from '@mui/material';
 import { LoadingComponent } from '@/components/loading/Loading.Component';
 
 import { usePokemonHook } from '@/hooks/pokemon/usePokemon.hook';
+import { useAuth } from '@/hooks/authentication/useAuth.hook';
 import * as Styled from '../../pokemon.styles';
 import { PokemonFormDialog } from './Pokemon.form.dialog';
-import { useAuth } from '@/hooks/authentication/useAuth.hook';
 
 interface PokemonProps {}
 

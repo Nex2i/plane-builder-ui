@@ -21,7 +21,7 @@ export const authenticationSlice = createSlice({
     },
     removeAuthentication: (state) => {
       localStorageRepository.deleteUserToken();
-      state = initialAuthenticationState;
+      Object.assign(state, initialAuthenticationState);
     },
   },
 });

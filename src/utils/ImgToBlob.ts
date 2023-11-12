@@ -5,7 +5,9 @@ async function ImgUrlToBlob(url: string): Promise<Blob | void> {
 
   const response = await fetch(url, options)
     .then((data) => data.blob())
-    .catch((err) => {});
+    .catch((err) => {
+      console.error(err);
+    });
   return response;
 }
 
