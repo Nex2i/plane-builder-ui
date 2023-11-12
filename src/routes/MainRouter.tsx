@@ -4,9 +4,11 @@ import { HttpInterceptor } from '@/libs/http/http.interceptor';
 import { snackBarSelector } from '@/stores/slices/SnackBar.slice';
 import { AuthenticatedRoutes } from './AuthenticatedRoutes';
 import { PublicRoutes } from './PublicRoutes';
+import { authenticationSelector } from '@/stores/slices/Authentication.slice';
 
 export const MainRouter = () => {
   const snackbarProps = snackBarSelector();
+  const authSlice = authenticationSelector();
 
   const element = useRoutes([...AuthenticatedRoutes, ...PublicRoutes]);
 

@@ -1,17 +1,25 @@
-import { User } from '@auth0/auth0-react';
 import { BaseRepository } from '@/apis/base.repository';
 import HttpClient from '@/libs/http/http.client';
 import { UserModel } from '@/types/models/authentication/user.model';
 
+const strategies = {
+  bearer: 'bearer',
+} as const;
+type User = {};
+
 interface IAuthenticationApi {
-  login: (id: string) => Promise<UserModel>;
+  login: (username: string, password: string) => Promise<UserModel>;
   registerNewUser: (user: User) => Promise<UserModel>;
   logout: () => Promise<void>;
 }
 
 export class AuthenticationApi extends BaseRepository implements IAuthenticationApi {
-  login = async (id: string): Promise<UserModel> => {
-    return HttpClient.get(`${this.apiUrl}/api/auth/v1/open/${id}`);
+  login = async (username: string, password: string): Promise<UserModel> => {
+    return HttpClient.post(`${this.apiUrl}/api/auth/v1/open/passport`, {
+      strategy: strategies.bearer,
+      strategyId: username,
+      password,
+    });
   };
 
   registerNewUser = async (user: User): Promise<UserModel> => {

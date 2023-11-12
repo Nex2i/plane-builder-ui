@@ -13,7 +13,6 @@ import {
 import AdbIcon from '@mui/icons-material/Adb';
 
 import { FC, useState } from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
 import { homeRoute } from '@/routes/RouteConstants';
 import * as Styled from '../styles';
@@ -24,7 +23,6 @@ interface coreNavbarProps {}
 
 export const CoreAppbar: FC<coreNavbarProps> = ({}) => {
   const navigate = useNavigate();
-  const { logout } = useAuth0();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -36,7 +34,7 @@ export const CoreAppbar: FC<coreNavbarProps> = ({}) => {
   };
 
   const handleLogout = () => {
-    logout();
+    // logout();
     handleCloseUserMenu();
   };
 
