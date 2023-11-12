@@ -22,6 +22,10 @@ export class AuthenticationApi extends BaseRepository implements IAuthentication
     });
   };
 
+  getLoggedInUser = async (): Promise<UserModel> => {
+    return HttpClient.get(`${this.apiUrl}/api/auth/v1/protected/`);
+  };
+
   registerNewUser = async (user: User): Promise<UserModel> => {
     return HttpClient.post(`${this.apiUrl}/api/auth/v1/open/user`, { ...user });
   };
