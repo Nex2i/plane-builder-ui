@@ -24,7 +24,7 @@ export function useRegisterUser(submitRegistration: boolean, setIsFetching: (fet
 
     user &&
       apis.authentication
-        .registerNewUser(user)
+        .registerNewUser({ name: 'TEST' })
         .then((res) => {
           if (!isMounted) return;
 
