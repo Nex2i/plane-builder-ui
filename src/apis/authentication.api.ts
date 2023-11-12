@@ -5,7 +5,9 @@ import { UserModel } from '@/types/models/authentication/user.model';
 const strategies = {
   bearer: 'bearer',
 } as const;
-type User = unknown;
+type User = {
+  name: string;
+};
 
 interface IAuthenticationApi {
   login: (username: string, password: string) => Promise<UserModel>;
