@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ApiContext } from '@/apis/api.context';
@@ -8,7 +7,6 @@ import { useAppDispatch } from '@/stores/store.hooks';
 export function useLogout(logoutSession: boolean, setIsFetching: (fetching: boolean) => void) {
   const apis = useContext(ApiContext);
   const navigate = useNavigate();
-  const { logout } = useAuth0();
 
   const dispatch = useAppDispatch();
 
@@ -45,6 +43,6 @@ export function useLogout(logoutSession: boolean, setIsFetching: (fetching: bool
   }, [logoutSession]);
 
   async function logoutUser() {
-    await logout({ logoutParams: { returnTo: window.location.origin } });
+    // await logout({ logoutParams: { returnTo: window.location.origin } });
   }
 }

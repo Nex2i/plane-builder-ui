@@ -72,7 +72,34 @@
         "import/no-named-as-default": "off",
         "react/react-in-jsx-scope": "off",
         "unused-imports/no-unused-imports": "warn",
-        "@typescript-eslint/no-unused-vars": ["warn"],
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ],
+        // forbid usage of unused variables (marked with an _)
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": ["parameter", "variable"],
+            "leadingUnderscore": "forbid",
+            "filter": {
+              // keep this one open for destructuring
+              "regex": "_*",
+              "match": false
+            },
+            "format": null
+          },
+          {
+            "selector": "parameter",
+            "leadingUnderscore": "require",
+            "format": null,
+            "modifiers": ["unused"]
+          }
+        ],
         "@typescript-eslint/explicit-function-return-type": ["off"],
         "@typescript-eslint/explicit-module-boundary-types": ["off"],
         "@typescript-eslint/no-empty-function": ["off"],
