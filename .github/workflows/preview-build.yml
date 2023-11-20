@@ -2,11 +2,10 @@ name: Deploy PR previews
 
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
+    types: [opened, reopened, synchronize, closed]
+  push:
+    tags:
+      - '*'
 
 concurrency: preview-${{ github.ref }}
 
@@ -17,6 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set branch/tag name
+        id: set-branch-tag-name
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "BRANCH_OR_TAG=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+          elif [[ "${{ github.event_name }}" == "push" ]]; then
+            TAG_NAME=${GITHUB_REF#refs/tags/}
+            echo "BRANCH_OR_TAG=${TAG_NAME}" >> $GITHUB_ENV
+          fi
+
       - name: Install and Build
         run: |
           npm install
@@ -26,3 +35,4 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./dist/
+          preview-branch: ${{ env.BRANCH_OR_TAG }}
