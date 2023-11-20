@@ -52,6 +52,9 @@ export const Login: FC<LoginProps> = ({}) => {
         <Button color="secondary" onClick={onSubmitForm} data-cy="cancel-edit-btn">
           Login
         </Button>
+        <Button color="secondary" onClick={onSubmitForm} data-cy="cancel-edit-btn">
+          Test
+        </Button>
         <Button onClick={google} data-cy="save-pokemon-btn">
           Register
         </Button>
