@@ -4,14 +4,12 @@ import { Typography } from '@mui/material';
 import { LoadingComponent } from '@/components/loading/Loading.Component';
 
 import { usePokemonHook } from '@/hooks/pokemon/usePokemon.hook';
-import { useAuth } from '@/hooks/authentication/useAuth.hook';
 import * as Styled from '../../pokemon.styles';
 import { PokemonFormDialog } from './Pokemon.form.dialog';
 
 interface PokemonProps {}
 
 export const Pokemon: FC<PokemonProps> = ({}) => {
-  const {} = useAuth();
   const [isFetching, setIsFetching] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const { id } = useParams() as { id: string };
@@ -29,7 +27,9 @@ export const Pokemon: FC<PokemonProps> = ({}) => {
   return (
     <div data-cy="pokemon-container">
       <Styled.Row>
-        <Typography variant="h1">{name}</Typography>
+        <Styled.DynamicTypography text={name} variant="h1">
+          {name}
+        </Styled.DynamicTypography>
         <Typography variant="h3">
           <Styled.EditIcon onClick={toggleEdit} data-cy="edit-btn" />
         </Typography>

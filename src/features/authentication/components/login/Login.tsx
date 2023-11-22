@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import { FC, useState, useEffect } from 'react';
 
 import { FieldValues } from 'react-hook-form';
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { FormFilledInput } from '@/libs/forms/formFilledComponents';
 import { LoadingComponent } from '@/components/loading/Loading.Component';
 import { useLogin } from '@/hooks/authentication/useLogin.hook';
-import { homeRoute } from '@/routes/RouteConstants';
+import { authRoutes, homeRoute } from '@/routes/RouteConstants';
 import * as Styled from '../auth.styles';
 import { loginFormFields, useLoginForm } from './loginForm';
 
@@ -28,8 +28,14 @@ export const Login: FC<LoginProps> = ({}) => {
     password: '',
   });
 
+  // Will implement with Google
+  // eslint-disable-next-line
   const google = () => {
     window.open('http://localhost:8085/api/auth/v1/open/passport/google', '_self');
+  };
+
+  const redirectToRegister = () => {
+    navigate(authRoutes.register);
   };
 
   const handleValidForm = (formData: FieldValues) => {
@@ -45,14 +51,14 @@ export const Login: FC<LoginProps> = ({}) => {
   return (
     <div>
       <Styled.BaseForm onSubmit={onSubmitForm}>
-        <Typography variant={'h2'}>Sign in</Typography>
+        <Styled.FormTitle>Sign In</Styled.FormTitle>
         <FormFilledInput fieldMapping={loginFormFields.username} control={control} />
         <FormFilledInput fieldMapping={loginFormFields.password} control={control} />
         {isAuthorizing && <LoadingComponent animateOnly={true} />}
-        <Button color="secondary" onClick={onSubmitForm} data-cy="cancel-edit-btn">
+        <Button onClick={onSubmitForm} data-cy="login-btn">
           Login
         </Button>
-        <Button onClick={google} data-cy="save-pokemon-btn">
+        <Button color="secondary" onClick={redirectToRegister} data-cy="register-btn">
           Register
         </Button>
       </Styled.BaseForm>

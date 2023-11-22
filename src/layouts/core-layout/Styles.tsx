@@ -33,8 +33,7 @@ export const CoreCardContent = styled(Card)(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'center',
   gap: theme.spacing(2),
-  minWidth: '300px',
-  minHeight: '100px',
+  margin: 0,
 }));
 
 export const CoreDrawer = styled(Drawer)`
