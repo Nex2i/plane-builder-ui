@@ -77,6 +77,6 @@ export const FormHeader = styled(Box)(({ theme }) => ({
   gap: theme.spacing(2),
 }));
 
-export const FormTitle = styled('h2')(({ theme }) => ({
+export const FormTitle = styled('h2')(({}) => ({
   margin: 0,
 }));

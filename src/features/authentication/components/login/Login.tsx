@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import { FC, useState, useEffect } from 'react';
 
 import { FieldValues } from 'react-hook-form';
@@ -23,11 +23,13 @@ export const Login: FC<LoginProps> = ({}) => {
     }
   }, [isAuthorized]);
 
-  const { handleSubmit, control, formState } = useLoginForm({
+  const { handleSubmit, control } = useLoginForm({
     username: '',
     password: '',
   });
 
+  // Will implement with Google
+  // eslint-disable-next-line
   const google = () => {
     window.open('http://localhost:8085/api/auth/v1/open/passport/google', '_self');
   };
@@ -45,8 +47,6 @@ export const Login: FC<LoginProps> = ({}) => {
     console.log('invalid form', formData);
   };
   const onSubmitForm = handleSubmit(handleValidForm, handleInvalidForm);
-
-  console.log('formState', formState);
 
   return (
     <div>

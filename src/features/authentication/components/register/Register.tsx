@@ -1,14 +1,14 @@
 import { FC, useState } from 'react';
-import * as Styled from '../auth.styles';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { registerFormFields, useRegisterForm } from './registerForm';
 import { FieldValues } from 'react-hook-form';
 import { authRoutes } from '@/routes/RouteConstants';
 import { FormFilledInput, FormFilledSelect } from '@/libs/forms/formFilledComponents';
 import { RegisterUserPayload } from '@/apis/authentication.api';
 import { useRegister } from '@/hooks/authentication/useRegister.hook';
 import { getStateValueMap } from '@/types/location/States';
+import * as Styled from '../auth.styles';
+import { registerFormFields, useRegisterForm } from './registerForm';
 
 const stateOptions = getStateValueMap();
 
@@ -19,7 +19,7 @@ export const RegisterComponent: FC<RegisterComponentProps> = ({}) => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [formValues, setFormValues] = useState<RegisterUserPayload>(new RegisterUserPayload());
 
-  const { handleSubmit, control, formState } = useRegisterForm({
+  const { handleSubmit, control } = useRegisterForm({
     username: '',
     password: '',
   });
