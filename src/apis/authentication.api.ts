@@ -5,13 +5,25 @@ import { UserModel } from '@/types/models/authentication/user.model';
 const strategies = {
   bearer: 'bearer',
 } as const;
-type User = {
-  name: string;
-};
+export class RegisterUserPayload {
+  public firstName: string = '';
+  public lastName: string = '';
+  public userName: string = '';
+  public email: string = '';
+  public picture: string = '';
+  public strategyId: string = '';
+  public password: string = '';
+  public phoneNumber: string = '';
+  public streetAddress1: string = '';
+  public streetAddress2: string = '';
+  public city: string = '';
+  public state: string = '';
+  public zipCode: string = '';
+}
 
 interface IAuthenticationApi {
   login: (username: string, password: string) => Promise<UserModel>;
-  registerNewUser: (user: User) => Promise<UserModel>;
+  registerNewUser: (user: RegisterUserPayload) => Promise<UserModel>;
   logout: () => Promise<void>;
 }
 
@@ -28,8 +40,8 @@ export class AuthenticationApi extends BaseRepository implements IAuthentication
     return HttpClient.get(`${this.apiUrl}/api/auth/v1/protected/`);
   };
 
-  registerNewUser = async (user: User): Promise<UserModel> => {
-    return HttpClient.post(`${this.apiUrl}/api/auth/v1/open/user`, { ...user });
+  registerNewUser = async (user: RegisterUserPayload): Promise<UserModel> => {
+    return HttpClient.post(`${this.apiUrl}/api/auth/v1/open/user/bearer`, { ...user });
   };
 
   logout = async (): Promise<void> => {
