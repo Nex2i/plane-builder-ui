@@ -28,6 +28,6 @@ export const authenticationSlice = createSlice({
 
 export const authenticationSelector = () => useAppSelector((store) => store.authentication);
 
-export const { setAuthentication } = authenticationSlice.actions;
+export const { setAuthentication, removeAuthentication } = authenticationSlice.actions;
 
 export default authenticationSlice.reducer;
