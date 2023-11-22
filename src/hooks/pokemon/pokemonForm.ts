@@ -24,7 +24,8 @@ class pokemonFormMapping extends BaseFormSchema {
     tooltip: 'Pokemon Name',
     validationSchema: z
       .string()
-      .nonempty()
+      .min(1)
+      .max(15)
       .regex(allowedCharactersRegex, 'Name cannot contain these special characters'),
   };
 
