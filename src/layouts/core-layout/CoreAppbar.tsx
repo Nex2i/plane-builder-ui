@@ -16,12 +16,14 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { homeRoute } from '@/routes/RouteConstants';
 import * as Styled from '../styles';
+import { useAuth } from '@/hooks/authentication/useAuth.hook';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 interface coreNavbarProps {}
 
 export const CoreAppbar: FC<coreNavbarProps> = ({}) => {
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
@@ -34,7 +36,7 @@ export const CoreAppbar: FC<coreNavbarProps> = ({}) => {
   };
 
   const handleLogout = () => {
-    // logout();
+    logout();
     handleCloseUserMenu();
   };
 

@@ -1,9 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IAuthenticationState } from '@/stores/sliceTypes/Authentication.type';
-import { authenticationSelector } from '@/stores/slices/Authentication.slice';
+import { authenticationSelector, removeAuthentication } from '@/stores/slices/Authentication.slice';
+import { useAppDispatch } from '@/stores/store.hooks';
+import { ApiContext } from '@/apis/api.context';
+import { useNavigate } from 'react-router-dom';
 
-type hookResponse = { user: IAuthenticationState; error: any; isAuthenticated: boolean };
+type hookResponse = { user: IAuthenticationState; error: any; isAuthenticated: boolean; logout: () => Promise<void> };
 export function useAuth(): hookResponse {
+  const navigate = useNavigate();
+  const apis = useContext(ApiContext);
+  const dispatch = useAppDispatch();
   const authSlice = authenticationSelector();
   const [isAuthenticated, setIsAuthenticated] = useState(() => isAuthValid(authSlice.token));
 
@@ -11,7 +17,15 @@ export function useAuth(): hookResponse {
     setIsAuthenticated(isAuthValid(authSlice.token));
   }, [authSlice]);
 
-  return { user: authSlice, error: {}, isAuthenticated };
+  async function logout(): Promise<void> {
+    apis.authentication.logout().finally(() => {
+      setIsAuthenticated(false);
+      dispatch(removeAuthentication());
+      navigate('/');
+    });
+  }
+
+  return { user: authSlice, error: {}, isAuthenticated, logout };
 }
 
 function isAuthValid(jwt: string): boolean {
