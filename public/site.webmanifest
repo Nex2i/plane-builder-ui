@@ -1,0 +1,19 @@
+{
+  "name": "Plane-Builder",
+  "short_name": "Plane-Builder",
+  "description": "Track and log building your plane!",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#171717",
+  "background_color": "#e8ebf2",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "portrait"
+}
