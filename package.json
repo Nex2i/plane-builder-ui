@@ -59,6 +59,7 @@
     "typescript": "^5.3.2",
     "vite": "^5.0.2",
     "vite-plugin-dynamic-import": "^1.4.0",
+    "vite-plugin-pwa": "^0.17.0",
     "vite-plugin-svgr": "^4.2.0"
   },
   "peerDependencies": {

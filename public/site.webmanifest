@@ -1,0 +1,42 @@
+{
+  "name": "Plane-Builder",
+  "short_name": "Plane-Builder",
+  "description": "Track and log building your plane!",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "32x32",
+      "type": "image/svg",
+      "purpose": "any"
+    },
+    {
+      "src": "/mail.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/mail.png",
+      "type": "image/png",
+      "platform": "desktop",
+      "form_factor": "wide",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/mail.png",
+      "type": "image/png",
+      "platform": "desktop",
+      "form_factor": "narrow",
+      "sizes": "512x512"
+    }
+  ],
+  "theme_color": "#171717",
+  "background_color": "#e8ebf2",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "id": "/",
+  "orientation": "portrait"
+}
