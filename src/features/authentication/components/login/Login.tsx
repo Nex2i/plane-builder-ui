@@ -9,6 +9,7 @@ import { useLogin } from '@/hooks/authentication/useLogin.hook';
 import { authRoutes, homeRoute } from '@/routes/RouteConstants';
 import * as Styled from '../auth.styles';
 import { loginFormFields, useLoginForm } from './loginForm';
+import { useAuth } from '@/hooks/authentication/useAuth.hook';
 
 interface LoginProps {}
 
@@ -16,12 +17,13 @@ export const Login: FC<LoginProps> = ({}) => {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState<{ username: string; password: string }>({ username: '', password: '' });
   const [_, isAuthorizing, isAuthorized] = useLogin(formValues.username, formValues.password);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
-    if (isAuthorized) {
+    if (isAuthorized || isAuthenticated) {
       navigate(homeRoute);
     }
-  }, [isAuthorized]);
+  }, [isAuthorized, isAuthenticated]);
 
   const { handleSubmit, control } = useLoginForm({
     username: '',
