@@ -7,9 +7,9 @@ import { FormFilledInput } from '@/libs/forms/formFilledComponents';
 import { LoadingComponent } from '@/components/loading/Loading.Component';
 import { useLogin } from '@/hooks/authentication/useLogin.hook';
 import { authRoutes, homeRoute } from '@/routes/RouteConstants';
+import { useAuth } from '@/hooks/authentication/useAuth.hook';
 import * as Styled from '../auth.styles';
 import { loginFormFields, useLoginForm } from './loginForm';
-import { useAuth } from '@/hooks/authentication/useAuth.hook';
 
 interface LoginProps {}
 

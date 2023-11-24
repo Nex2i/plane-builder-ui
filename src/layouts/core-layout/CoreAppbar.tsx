@@ -15,8 +15,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { homeRoute } from '@/routes/RouteConstants';
-import * as Styled from '../styles';
 import { useAuth } from '@/hooks/authentication/useAuth.hook';
+import * as Styled from '../styles';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
