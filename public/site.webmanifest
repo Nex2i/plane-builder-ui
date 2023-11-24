@@ -5,19 +5,13 @@
   "icons": [
     {
       "src": "/vite.svg",
-      "sizes": "192x192",
+      "sizes": "32x32",
       "type": "image/svg",
       "purpose": "any"
     },
     {
       "src": "/mail.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/mail.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     }
@@ -25,10 +19,17 @@
   "screenshots": [
     {
       "src": "/mail.png",
-      "sizes": "widthxheight",
       "type": "image/png",
       "platform": "desktop",
-      "form_factor": "wide"
+      "form_factor": "wide",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/mail.png",
+      "type": "image/png",
+      "platform": "desktop",
+      "form_factor": "narrow",
+      "sizes": "512x512"
     }
   ],
   "theme_color": "#171717",
@@ -36,5 +37,6 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
+  "id": "/",
   "orientation": "portrait"
 }
