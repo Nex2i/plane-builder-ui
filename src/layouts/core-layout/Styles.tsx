@@ -56,8 +56,11 @@ export const CreateAction = styled(BottomNavigationAction)(({}) => ({
   transform: 'translateX(-50%)',
   zIndex: 1,
   cursor: 'pointer',
+  outline: 'none !important',
 }));
 
 export const BottomNavigationButton = styled(BottomNavigationAction)(({}) => ({
   cursor: 'pointer',
+  boxShadow: 'none',
+  outline: 'none !important',
 }));

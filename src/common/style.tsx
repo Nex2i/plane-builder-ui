@@ -69,9 +69,9 @@ export const CreateActionIcon = styled(MuiPanoramaFishEyeIcon)(({}) => ({
   height: '50px',
   width: '50px',
   color: '#0EA5E9',
-  borderRadius: '50%', // Circular background
-  backgroundColor: '#0ea4e9a2', // Background color
-  padding: '.5px', // Space between icon and background edge
+  borderRadius: '50%',
+  backgroundColor: '#51b4e2',
+  padding: '.5px',
 }));
 
 export const BaseForm = styled(FormControl)(({ theme }) => ({
