@@ -1,4 +1,4 @@
-import { Box, Card, Drawer, styled } from '@mui/material';
+import { BottomNavigation, BottomNavigationAction, Box, Card, Drawer, styled } from '@mui/material';
 export * from '@/common/style';
 
 export const CoreLayoutContainer = styled(Box)`
@@ -43,3 +43,21 @@ export const CoreDrawer = styled(Drawer)`
     border-radius: 0;
   }
 `;
+
+export const BottomNavigationContainer = styled(BottomNavigation)(({ theme }) => ({
+  position: 'relative',
+  paddingBottom: '15px', // Adjust this for the circle button
+}));
+
+export const CreateAction = styled(BottomNavigationAction)(({ theme }) => ({
+  position: 'absolute',
+  top: '-15px', // Half outside
+  left: '50%',
+  transform: 'translateX(-50%)',
+  zIndex: 1,
+  cursor: 'pointer',
+}));
+
+export const BottomNavigationButton = styled(BottomNavigationAction)(({ theme }) => ({
+  cursor: 'pointer',
+}));

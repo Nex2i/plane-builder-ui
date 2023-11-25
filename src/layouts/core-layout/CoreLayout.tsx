@@ -4,7 +4,8 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import * as Styles from './Styles';
 import { CoreAppbar } from './CoreAppbar.tsx';
-// import { CoreSidebar } from './CoreSidebar.tsx';
+import { useUserAgent } from '@/hooks/window/useUserAgent.tsx';
+import CoreBottomNavigation from './CoreBottomNavigation.tsx';
 
 interface coreLayoutProps {
   children: React.ReactNode;
@@ -12,21 +13,24 @@ interface coreLayoutProps {
 
 export const CoreLayout: FC<coreLayoutProps> = ({ children }) => {
   const [parent] = useAutoAnimate(/* optional config */);
+
+  const { isMobile } = useUserAgent();
+
   return (
     <Styles.CoreLayoutContainer>
-      <Styles.CoreLayoutAppbar>
-        <CoreAppbar />
-      </Styles.CoreLayoutAppbar>
+      {!isMobile && (
+        <Styles.CoreLayoutAppbar>
+          <CoreAppbar />
+        </Styles.CoreLayoutAppbar>
+      )}
       <Styles.CoreRow>
-        {/* <Styles.CoreLayoutSidebar>
-          <CoreSidebar />
-        </Styles.CoreLayoutSidebar> */}
         <Styles.CoreLayoutOutlet>
           <Styles.CoreCardContent ref={parent}>
             <Routes>{children}</Routes>
           </Styles.CoreCardContent>
         </Styles.CoreLayoutOutlet>
       </Styles.CoreRow>
+      {isMobile && <CoreBottomNavigation />}
     </Styles.CoreLayoutContainer>
   );
 };

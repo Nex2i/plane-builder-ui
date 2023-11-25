@@ -2,6 +2,7 @@ import { Box, FormControl, Typography, styled } from '@mui/material';
 import { default as MuiEditIcon } from '@mui/icons-material/Edit';
 import { default as MuiAddIcon } from '@mui/icons-material/AddCircle';
 import { default as MuiCancelIcon } from '@mui/icons-material/Cancel';
+import { default as MuiPanoramaFishEyeIcon } from '@mui/icons-material/PanoramaFishEye';
 
 interface dynamicTypographyProps {
   text: string;
@@ -61,6 +62,16 @@ export const AddIcon = styled(MuiAddIcon)(({}) => ({
 
 export const CancelIcon = styled(MuiCancelIcon)(({}) => ({
   cursor: 'pointer',
+}));
+
+export const CreateActionIcon = styled(MuiPanoramaFishEyeIcon)(({ theme }) => ({
+  cursor: 'pointer',
+  height: '50px',
+  width: '50px',
+  color: '#0EA5E9',
+  borderRadius: '50%', // Circular background
+  backgroundColor: '#0ea4e9a2', // Background color
+  padding: '.5px', // Space between icon and background edge
 }));
 
 export const BaseForm = styled(FormControl)(({ theme }) => ({
