@@ -47,20 +47,23 @@ export const CoreDrawer = styled(Drawer)`
 export const BottomNavigationContainer = styled(BottomNavigation)(({}) => ({
   position: 'relative',
   paddingBottom: '15px', // Adjust this for the circle button
+  gap: '50px',
 }));
 
-export const CreateAction = styled(BottomNavigationAction)(({}) => ({
-  position: 'absolute',
-  top: '-15px', // Half outside
-  left: '50%',
-  transform: 'translateX(-50%)',
-  zIndex: 1,
-  cursor: 'pointer',
-  outline: 'none !important',
-}));
-
-export const BottomNavigationButton = styled(BottomNavigationAction)(({}) => ({
+const BaseBottomNavButton = styled(BottomNavigationAction)(({}) => ({
   cursor: 'pointer',
   boxShadow: 'none',
   outline: 'none !important',
+}));
+
+export const CreateAction = styled(BaseBottomNavButton)(({}) => ({
+  position: 'absolute',
+  top: '-30px', // Half outside
+  left: '50%',
+  transform: 'translateX(-50%)',
+  zIndex: 1,
+}));
+
+export const BottomNavigationButton = styled(BaseBottomNavButton)(({}) => ({
+  top: '6px', // Half outside
 }));

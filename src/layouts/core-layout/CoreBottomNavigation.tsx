@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Paper from '@mui/material/Paper';
-import ListAltIcon from '@mui/icons-material/ListAlt';
+import ListAltIcon from '@mui/icons-material/ListAltOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import * as Styled from './Styles';
@@ -22,8 +22,8 @@ export default function CoreBottomNavigation() {
             setValue(newValue);
           }}
         >
-          <Styled.BottomNavigationButton value={'logs'} label="Logs" icon={<ListAltIcon />} />
-          <Styled.CreateAction value={'create'} label="" icon={<Styled.CreateActionIcon />} />
+          <Styled.BottomNavigationButton value={'logs'} label="My Logs" icon={<ListAltIcon />} />
+          <Styled.CreateAction value={'create'} label="Create Log" icon={<Styled.CreateActionIcon />} />
           <Styled.BottomNavigationButton value={'profile'} label="Profile" icon={<AccountCircleIcon />} />
         </Styled.BottomNavigationContainer>
       </Paper>

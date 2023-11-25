@@ -64,10 +64,11 @@ export const CancelIcon = styled(MuiCancelIcon)(({}) => ({
   cursor: 'pointer',
 }));
 
+const CreateActionSize = '60px';
 export const CreateActionIcon = styled(MuiPanoramaFishEyeIcon)(({}) => ({
   cursor: 'pointer',
-  height: '50px',
-  width: '50px',
+  height: CreateActionSize,
+  width: CreateActionSize,
   color: '#0EA5E9',
   borderRadius: '50%',
   backgroundColor: '#51b4e2',
