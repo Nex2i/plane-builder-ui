@@ -4,6 +4,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 
 import { store } from '@/stores/store';
 import { ApiContext, initializedApis } from '@/apis/api.context';
+import { UserAgentContext, initializeUserAgent } from '@/stores/contexts/userAgent.context';
 
 type AppProviderProps = {
   children: React.ReactNode;
@@ -21,9 +22,11 @@ export const AppProvider = ({ children }: AppProviderProps) => {
         </div>
       }
     >
-      <ApiContext.Provider value={initializedApis}>
-        <ReduxProvider store={store}>{children}</ReduxProvider>
-      </ApiContext.Provider>
+      <UserAgentContext.Provider value={initializeUserAgent}>
+        <ApiContext.Provider value={initializedApis}>
+          <ReduxProvider store={store}>{children}</ReduxProvider>
+        </ApiContext.Provider>
+      </UserAgentContext.Provider>
     </React.Suspense>
   );
 };
