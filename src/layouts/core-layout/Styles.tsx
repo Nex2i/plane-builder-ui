@@ -44,12 +44,12 @@ export const CoreDrawer = styled(Drawer)`
   }
 `;
 
-export const BottomNavigationContainer = styled(BottomNavigation)(({ theme }) => ({
+export const BottomNavigationContainer = styled(BottomNavigation)(({}) => ({
   position: 'relative',
   paddingBottom: '15px', // Adjust this for the circle button
 }));
 
-export const CreateAction = styled(BottomNavigationAction)(({ theme }) => ({
+export const CreateAction = styled(BottomNavigationAction)(({}) => ({
   position: 'absolute',
   top: '-15px', // Half outside
   left: '50%',
@@ -58,6 +58,6 @@ export const CreateAction = styled(BottomNavigationAction)(({ theme }) => ({
   cursor: 'pointer',
 }));
 
-export const BottomNavigationButton = styled(BottomNavigationAction)(({ theme }) => ({
+export const BottomNavigationButton = styled(BottomNavigationAction)(({}) => ({
   cursor: 'pointer',
 }));

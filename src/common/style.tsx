@@ -64,7 +64,7 @@ export const CancelIcon = styled(MuiCancelIcon)(({}) => ({
   cursor: 'pointer',
 }));
 
-export const CreateActionIcon = styled(MuiPanoramaFishEyeIcon)(({ theme }) => ({
+export const CreateActionIcon = styled(MuiPanoramaFishEyeIcon)(({}) => ({
   cursor: 'pointer',
   height: '50px',
   width: '50px',

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Paper from '@mui/material/Paper';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -19,7 +18,7 @@ export default function CoreBottomNavigation() {
         <Styled.BottomNavigationContainer
           showLabels
           value={value}
-          onChange={(event, newValue) => {
+          onChange={(_event, newValue) => {
             setValue(newValue);
           }}
         >

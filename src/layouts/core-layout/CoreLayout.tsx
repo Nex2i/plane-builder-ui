@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { Routes } from 'react-router-dom';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
+import { useUserAgent } from '@/hooks/window/useUserAgent.tsx';
 import * as Styles from './Styles';
 import { CoreAppbar } from './CoreAppbar.tsx';
-import { useUserAgent } from '@/hooks/window/useUserAgent.tsx';
 import CoreBottomNavigation from './CoreBottomNavigation.tsx';
 
 interface coreLayoutProps {
