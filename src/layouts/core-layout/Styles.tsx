@@ -15,9 +15,10 @@ export const CoreLayoutAppbar = styled(Box)`
 
 export const CoreLayoutSidebar = styled(Box)``;
 
-export const CoreRow = styled(Box)`
-  display: flex;
-`;
+export const CoreRow = styled(Box)<{ width?: string }>(({ width }) => ({
+  display: 'flex',
+  width: width || 'auto',
+}));
 
 export const CoreLayoutOutlet = styled(Box)`
   display: flex;
@@ -35,6 +36,7 @@ export const CoreCardContent = styled(Card)(({ theme }) => ({
   alignItems: 'center',
   gap: theme.spacing(2),
   margin: 0,
+  width: '100%',
 }));
 
 export const CoreDrawer = styled(Drawer)`

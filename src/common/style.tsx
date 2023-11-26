@@ -52,6 +52,13 @@ export const Row = styled(Box)(({ theme }) => ({
   gap: theme.spacing(2),
 }));
 
+export const Column = styled(Box)<{ align?: 'left' | 'center' | 'right' }>(({ align }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: align || 'center',
+  width: '100%',
+}));
+
 export const EditIcon = styled(MuiEditIcon)(({}) => ({
   cursor: 'pointer',
 }));

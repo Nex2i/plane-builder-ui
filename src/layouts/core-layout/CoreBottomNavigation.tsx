@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState, useRef, SyntheticEvent } from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Paper from '@mui/material/Paper';
@@ -6,22 +6,42 @@ import ListAltIcon from '@mui/icons-material/ListAltOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import * as Styled from './Styles';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function CoreBottomNavigation() {
-  const [value, setValue] = React.useState(0);
-  const ref = React.useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [value, setValue] = useState('logs');
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const baseRoute = location.pathname;
+    const activeRouteValue = getActiveRouteValue(baseRoute);
+    setValue(activeRouteValue);
+  }, [location]);
+
+  function navigationActionClick(_event: SyntheticEvent, value: string) {
+    switch (value) {
+      case 'logs':
+        navigate('/log/asdasdasd');
+        break;
+      case 'create':
+        //OPEN DRAWER
+        break;
+      case 'profile':
+        navigate('/profile');
+        break;
+      default:
+        navigate('/log');
+        break;
+    }
+  }
 
   return (
     <Box sx={{ pb: 7 }} ref={ref} data-cy="core-bottom-navigation">
       <CssBaseline />
       <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-        <Styled.BottomNavigationContainer
-          showLabels
-          value={value}
-          onChange={(_event, newValue) => {
-            setValue(newValue);
-          }}
-        >
+        <Styled.BottomNavigationContainer showLabels value={value} onChange={navigationActionClick}>
           <Styled.BottomNavigationButton value={'logs'} label="My Logs" icon={<ListAltIcon />} />
           <Styled.CreateAction value={'create'} label="Create Log" icon={<Styled.CreateActionIcon />} />
           <Styled.BottomNavigationButton value={'profile'} label="Profile" icon={<AccountCircleIcon />} />
@@ -29,4 +49,18 @@ export default function CoreBottomNavigation() {
       </Paper>
     </Box>
   );
+}
+
+const logRoutes = ['log'];
+const profileRoutes = ['profile'];
+
+function getActiveRouteValue(baseRoute: string): string {
+  switch (true) {
+    case logRoutes.some((route) => baseRoute.includes(route)):
+      return 'logs';
+    case profileRoutes.some((route) => baseRoute.includes(route)):
+      return 'profile';
+    default:
+      return 'logs';
+  }
 }
