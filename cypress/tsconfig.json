@@ -11,6 +11,7 @@
     "../cypress.config.ts",
     "../**/*.cy.ts",
     "../**/*.cy.tsx",
+    "../**/*.spec.tsx",
     "../**/*.cy.js",
     "../**/*.cy.jsx",
     "../**/*.d.ts"
