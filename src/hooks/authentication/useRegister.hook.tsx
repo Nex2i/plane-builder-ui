@@ -47,6 +47,7 @@ export function useRegister(userPayload: RegisterUserPayload): hookResponse {
             token: res.token,
             picture: res.picture,
             email: res.email,
+            userName: res.userName,
           })
         );
 

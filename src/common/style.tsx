@@ -99,3 +99,9 @@ export const FormHeader = styled(Box)(({ theme }) => ({
 export const FormTitle = styled('h2')(({}) => ({
   margin: 0,
 }));
+
+export const CenterTypography = styled(Typography)(({}) => ({
+  display: 'flex',
+  alignItems: 'center',
+  textDecoration: 'underline',
+}));
