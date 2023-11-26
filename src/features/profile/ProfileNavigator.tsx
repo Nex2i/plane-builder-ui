@@ -1,8 +1,8 @@
 import { Avatar, Typography } from '@mui/material';
 import { FC } from 'react';
-import * as Styled from './profile.styles';
-import { useAuth } from '@/hooks/authentication/useAuth.hook';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { useAuth } from '@/hooks/authentication/useAuth.hook';
+import * as Styled from './profile.styles';
 
 interface ProfileNavigatorProps {}
 

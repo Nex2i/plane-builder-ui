@@ -3,9 +3,9 @@ import { lazyImport } from '@/utils/lazyImport';
 
 import { AuthCheckProvider } from '@/providers/AuthProviders';
 import { logRoutes, pokemonRoutes, profileRoutes } from './RouteConstants';
-import { LogRoutes } from '@/features/log/LogRoutes';
-import { ProfileRoutes } from '@/features/profile/ProfileRoutes';
 const { PokemonRoutes } = lazyImport(() => import('@/features/pokemon/PokemonRoutes'), 'PokemonRoutes');
+const { LogRoutes } = lazyImport(() => import('@/features/log/LogRoutes'), 'LogRoutes');
+const { ProfileRoutes } = lazyImport(() => import('@/features/profile/ProfileRoutes'), 'ProfileRoutes');
 
 export const AuthenticatedRoutes: RouteObject[] = [
   {

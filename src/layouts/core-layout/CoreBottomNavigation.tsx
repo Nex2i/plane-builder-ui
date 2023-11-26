@@ -5,8 +5,8 @@ import Paper from '@mui/material/Paper';
 import ListAltIcon from '@mui/icons-material/ListAltOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-import * as Styled from './Styles';
 import { useLocation, useNavigate } from 'react-router-dom';
+import * as Styled from './Styles';
 
 export default function CoreBottomNavigation() {
   const location = useLocation();

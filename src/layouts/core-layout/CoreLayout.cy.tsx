@@ -1,9 +1,8 @@
-import { setupStore } from '@/stores/store';
 import { Provider as ReduxProvider } from 'react-redux';
-import { CoreLayout } from './CoreLayout';
-import { UserAgentContext } from '@/stores/contexts/userAgent.context';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { pokemonRoutes } from '@/routes/RouteConstants';
+import { UserAgentContext } from '@/stores/contexts/userAgent.context';
+import { setupStore } from '@/stores/store';
+import { CoreLayout } from './CoreLayout';
 
 describe('CoreLayout', () => {
   const defaultRtkStore = setupStore({});
