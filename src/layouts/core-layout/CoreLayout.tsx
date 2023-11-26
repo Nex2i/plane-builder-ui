@@ -16,13 +16,11 @@ export const CoreLayout: FC<coreLayoutProps> = ({ children }) => {
 
   const { isMobile } = useContext(UserAgentContext);
 
+  console.log('IM HERE');
+
   return (
     <Styles.CoreLayoutContainer>
-      {!isMobile && (
-        <Styles.CoreLayoutAppbar>
-          <CoreAppbar />
-        </Styles.CoreLayoutAppbar>
-      )}
+      {!isMobile && <CoreAppbar />}
       <Styles.CoreRow>
         <Styles.CoreLayoutOutlet>
           <Styles.CoreCardContent ref={parent}>

@@ -12,7 +12,7 @@ export default function CoreBottomNavigation() {
   const ref = React.useRef<HTMLDivElement>(null);
 
   return (
-    <Box sx={{ pb: 7 }} ref={ref}>
+    <Box sx={{ pb: 7 }} ref={ref} data-cy="core-bottom-navigation">
       <CssBaseline />
       <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
         <Styled.BottomNavigationContainer

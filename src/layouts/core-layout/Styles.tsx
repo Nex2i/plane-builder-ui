@@ -1,5 +1,6 @@
 import { BottomNavigation, BottomNavigationAction, Box, Card, Drawer, styled } from '@mui/material';
 export * from '@/common/style';
+export * from '../styles';
 
 export const CoreLayoutContainer = styled(Box)`
   display: flex;
