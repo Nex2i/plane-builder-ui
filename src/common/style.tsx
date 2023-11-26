@@ -76,7 +76,7 @@ export const CreateActionIcon = styled(MuiPanoramaFishEyeIcon)(({}) => ({
   cursor: 'pointer',
   height: CreateActionSize,
   width: CreateActionSize,
-  color: '#0EA5E9',
+  color: '#60c0ed',
   borderRadius: '50%',
   backgroundColor: '#51b4e2',
   padding: '.5px',
