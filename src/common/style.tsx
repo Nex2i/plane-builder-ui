@@ -105,3 +105,9 @@ export const CenterTypography = styled(Typography)(({}) => ({
   alignItems: 'center',
   textDecoration: 'underline',
 }));
+
+export const ScrollableContainer = styled(Box)<{ maxHeight?: string }>(({ maxHeight }) => ({
+  overflow: 'auto',
+  height: '100%',
+  maxHeight: maxHeight || '50vh',
+}));

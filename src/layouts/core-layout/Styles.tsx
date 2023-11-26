@@ -7,6 +7,8 @@ export const CoreLayoutContainer = styled(Box)`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  position: fixed;
+  top: 0;
 `;
 
 export const CoreLayoutAppbar = styled(Box)`

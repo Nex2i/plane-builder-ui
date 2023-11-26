@@ -14,10 +14,12 @@ export const ProfileNavigator: FC<ProfileNavigatorProps> = ({}) => {
         <Avatar alt={user.email} src={user.picture} sx={{ width: 100, height: 100 }} />
         <Typography variant="h6">{user.userName}</Typography>
       </Styled.Column>
-      <Styled.CenterTypography mt={2} variant="h4">
-        <ArrowRightIcon fontSize="large" />
-        My Projects
-      </Styled.CenterTypography>
+      <Styled.ScrollableContainer>
+        <Styled.CenterTypography mt={2} variant="h4">
+          <ArrowRightIcon fontSize="large" />
+          My Projects
+        </Styled.CenterTypography>
+      </Styled.ScrollableContainer>
       <Styled.LogoutLink variant="body2" onClick={() => logout()}>
         Logout
       </Styled.LogoutLink>
