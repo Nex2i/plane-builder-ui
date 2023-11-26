@@ -1,14 +1,16 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FieldValues } from 'react-hook-form';
-import { authRoutes } from '@/routes/RouteConstants';
+import { authRoutes, homeRoute } from '@/routes/RouteConstants';
 import { FormFilledInput, FormFilledSelect } from '@/libs/forms/formFilledComponents';
 import { RegisterUserPayload } from '@/apis/authentication.api';
 import { useRegister } from '@/hooks/authentication/useRegister.hook';
 import { getStateValueMap } from '@/types/location/States';
 import * as Styled from '../auth.styles';
 import { registerFormFields, useRegisterForm } from './registerForm';
+import { useAuth } from '@/hooks/authentication/useAuth.hook';
+import { LoadingComponent } from '@/components/loading/Loading.Component';
 
 const stateOptions = getStateValueMap();
 
@@ -16,6 +18,7 @@ interface RegisterComponentProps {}
 
 export const RegisterComponent: FC<RegisterComponentProps> = ({}) => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [formValues, setFormValues] = useState<RegisterUserPayload>(new RegisterUserPayload());
 
@@ -24,7 +27,13 @@ export const RegisterComponent: FC<RegisterComponentProps> = ({}) => {
     password: '',
   });
 
-  const [] = useRegister(formValues);
+  const [_, isAuthorizing, isAuthorized] = useRegister(formValues);
+
+  useEffect(() => {
+    if (isAuthorized || isAuthenticated) {
+      navigate(homeRoute);
+    }
+  }, [isAuthorized, isAuthenticated]);
 
   const handleValidForm = (formData: FieldValues) => {
     const formInfo = registerFormFields.createEditSaveRequest(formData);
@@ -77,6 +86,7 @@ export const RegisterComponent: FC<RegisterComponentProps> = ({}) => {
             <FormFilledInput fieldMapping={registerFormFields.zipCode} control={control} />
           </>
         )}
+        {isAuthorizing ? <LoadingComponent animateOnly={true} /> : null}
         {currentPage === 2 && (
           <Button onClick={onSubmitForm} data-cy="login-btn">
             Register User
