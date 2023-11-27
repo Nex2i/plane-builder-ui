@@ -1,4 +1,4 @@
-// import { sentryVitePlugin } from '@sentry/vite-plugin';
+import { sentryVitePlugin } from '@sentry/vite-plugin';
 import { defineConfig } from 'vite';
 import * as path from 'path';
 import react from '@vitejs/plugin-react-swc';
@@ -17,10 +17,10 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA(),
-    // sentryVitePlugin({
-    //   org: 'requestkraken',
-    //   project: 'plane-builder-ui',
-    // }),
+    sentryVitePlugin({
+      org: 'requestkraken',
+      project: 'plane-builder-ui',
+    }),
   ],
 
   resolve: {
@@ -28,6 +28,6 @@ export default defineConfig({
   },
 
   build: {
-    sourcemap: false,
+    sourcemap: true,
   },
 });
