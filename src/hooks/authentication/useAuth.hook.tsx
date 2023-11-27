@@ -25,8 +25,6 @@ export function useAuth(): hookResponse {
     });
   }
 
-  console.log('authSlice', authSlice);
-
   return { user: authSlice, error: {}, isAuthenticated, logout };
 }
 
