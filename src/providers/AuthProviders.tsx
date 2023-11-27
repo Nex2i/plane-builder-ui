@@ -27,6 +27,7 @@ export const AuthCheckProvider: FC<AuthCheckProviderProps> = ({}) => {
               token: res.token,
               picture: res.picture,
               email: res.email,
+              userName: res.userName,
             })
           );
         })

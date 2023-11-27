@@ -52,6 +52,13 @@ export const Row = styled(Box)(({ theme }) => ({
   gap: theme.spacing(2),
 }));
 
+export const Column = styled(Box)<{ align?: 'left' | 'center' | 'right' }>(({ align }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: align || 'center',
+  width: '100%',
+}));
+
 export const EditIcon = styled(MuiEditIcon)(({}) => ({
   cursor: 'pointer',
 }));
@@ -69,7 +76,7 @@ export const CreateActionIcon = styled(MuiPanoramaFishEyeIcon)(({}) => ({
   cursor: 'pointer',
   height: CreateActionSize,
   width: CreateActionSize,
-  color: '#0EA5E9',
+  color: '#60c0ed',
   borderRadius: '50%',
   backgroundColor: '#51b4e2',
   padding: '.5px',
@@ -91,4 +98,16 @@ export const FormHeader = styled(Box)(({ theme }) => ({
 
 export const FormTitle = styled('h2')(({}) => ({
   margin: 0,
+}));
+
+export const CenterTypography = styled(Typography)(({}) => ({
+  display: 'flex',
+  alignItems: 'center',
+  textDecoration: 'underline',
+}));
+
+export const ScrollableContainer = styled(Box)<{ maxHeight?: string }>(({ maxHeight }) => ({
+  overflow: 'auto',
+  height: '100%',
+  maxHeight: maxHeight || '50vh',
 }));
