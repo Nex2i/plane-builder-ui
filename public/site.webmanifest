@@ -4,32 +4,56 @@
   "description": "Track and log building your plane!",
   "icons": [
     {
-      "src": "/vite.svg",
-      "sizes": "32x32",
-      "type": "image/svg",
+      "src": "/16.png",
+      "sizes": "16x16",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/mail.png",
-      "sizes": "512x512",
+      "src": "/64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/120.png",
+      "sizes": "120x120",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/196.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/1024.png",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
     }
   ],
   "screenshots": [
     {
-      "src": "/mail.png",
+      "src": "/1024.png",
       "type": "image/png",
       "platform": "desktop",
       "form_factor": "wide",
-      "sizes": "512x512"
+      "sizes": "1024x1024"
     },
     {
-      "src": "/mail.png",
+      "src": "/1024.png",
       "type": "image/png",
       "platform": "desktop",
       "form_factor": "narrow",
-      "sizes": "512x512"
+      "sizes": "1024x1024"
     }
   ],
   "theme_color": "#171717",
