@@ -1,4 +1,3 @@
-import { sentryVitePlugin } from '@sentry/vite-plugin';
 import { defineConfig } from 'vite';
 import * as path from 'path';
 import react from '@vitejs/plugin-react-swc';
@@ -14,14 +13,7 @@ export default defineConfig({
     port: 8080,
   },
 
-  plugins: [
-    react(),
-    VitePWA(),
-    sentryVitePlugin({
-      org: 'requestkraken',
-      project: 'plane-builder-ui',
-    }),
-  ],
+  plugins: [react(), VitePWA()],
 
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, './src') }],
