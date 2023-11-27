@@ -29,5 +29,15 @@ export default defineConfig({
 
   build: {
     sourcemap: true,
+
+    rollupOptions: {
+      onLog(level, log, handler) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        if (log.cause && log.cause.message === `Can't resolve original location of error.`) {
+          return;
+        }
+        handler(level, log);
+      },
+    },
   },
 });
