@@ -40,7 +40,7 @@ export default function CoreBottomNavigation() {
   return (
     <Box sx={{ pb: 7 }} ref={ref} data-cy="core-bottom-navigation">
       <CssBaseline />
-      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+      <Paper sx={{ position: 'fixed', bottom: 8, left: 0, right: 0 }} elevation={3}>
         <Styled.BottomNavigationContainer showLabels value={value} onChange={navigationActionClick}>
           <Styled.BottomNavigationButton value={'logs'} label="My Logs" icon={<ListAltIcon />} />
           <Styled.CreateAction value={'create'} label="Create Log" icon={<Styled.CreateActionIcon />} />
