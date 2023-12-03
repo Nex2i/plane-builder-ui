@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { BaseFormSchema, getSchemaFromClass } from '@/libs/forms/BaseFormSchema';
 import { FormFieldMapping } from '@/libs/forms/formMapping';
-import { RegisterUserPayload } from '@/apis/authentication.api';
+import { RegisterUserPayload } from '@/apis/authentication/RegisterUserPayload';
 
 class registerFormMapping extends BaseFormSchema {
   username: FormFieldMapping = {

@@ -23,7 +23,7 @@ export default function CoreBottomNavigation() {
   function navigationActionClick(_event: SyntheticEvent, value: string) {
     switch (value) {
       case 'logs':
-        navigate('/log/asdasdasd');
+        navigate('/log');
         break;
       case 'create':
         //OPEN DRAWER

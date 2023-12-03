@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 import { Routes } from 'react-router-dom';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { UserAgentContext } from '@/stores/contexts/userAgent.context.ts';
 import * as Styles from './Styles';
 import { CoreAppbar } from './CoreAppbar.tsx';
@@ -22,7 +22,7 @@ export const CoreLayout: FC<coreLayoutProps> = ({ children, title }) => {
     <Styles.CoreLayoutContainer>
       {!isMobile && <CoreAppbar />}
       <Styles.CoreRow>
-        <Styles.CoreLayoutOutlet ref={parent}>
+        <Styles.CoreLayoutOutlet>
           {title && (
             <Styles.CoreRow width="100%">
               <Typography align="left" variant="h2">
@@ -30,7 +30,9 @@ export const CoreLayout: FC<coreLayoutProps> = ({ children, title }) => {
               </Typography>
             </Styles.CoreRow>
           )}
-          <Routes>{children}</Routes>
+          <Box ref={parent}>
+            <Routes>{children}</Routes>
+          </Box>
         </Styles.CoreLayoutOutlet>
       </Styles.CoreRow>
       {isMobile && <CoreBottomNavigation />}
