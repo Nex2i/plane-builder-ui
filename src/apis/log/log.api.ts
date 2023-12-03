@@ -1,7 +1,7 @@
 import HttpClient from '@/libs/http/http.client';
+import { LogModel } from '@/types/models/log/log.model';
 import { BaseRepository } from '../base.repository';
 import { NewLogPayload } from './NewLogPayload';
-import { LogModel } from '@/types/models/log/log.model';
 
 interface ILogApi {}
 

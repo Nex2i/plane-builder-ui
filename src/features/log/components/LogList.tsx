@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import { LoadingComponent } from '@/components/loading/Loading.Component';
 import { useLogs } from '@/hooks/logs/useLogs';
-import { FC } from 'react';
 import { LogListItem } from './LogListItem';
 
 interface LogListProps {}

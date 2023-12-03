@@ -8,9 +8,9 @@ import { useRegister } from '@/hooks/authentication/useRegister.hook';
 import { getStateValueMap } from '@/types/location/States';
 import { useAuth } from '@/hooks/authentication/useAuth.hook';
 import { LoadingComponent } from '@/components/loading/Loading.Component';
+import { RegisterUserPayload } from '@/apis/authentication/RegisterUserPayload';
 import * as Styled from '../auth.styles';
 import { registerFormFields, useRegisterForm } from './registerForm';
-import { RegisterUserPayload } from '@/apis/authentication/RegisterUserPayload';
 
 const stateOptions = getStateValueMap();
 

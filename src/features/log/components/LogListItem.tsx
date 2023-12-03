@@ -1,5 +1,5 @@
-import { LogModel } from '@/types/models/log/log.model';
 import { FC } from 'react';
+import { LogModel } from '@/types/models/log/log.model';
 
 interface LogListItemProps {
   log: LogModel;
