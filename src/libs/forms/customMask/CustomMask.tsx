@@ -8,15 +8,21 @@ interface CustomProps {
   mask: any;
   definitions: MaskedPattern;
   overwrite: boolean;
+  multiline?: boolean;
+  rows?: number;
 }
 
 const CustomMask = React.forwardRef<HTMLElement, CustomProps>((props, ref) => {
-  const { onChange, overwrite = false, ...other } = props;
+  const { onChange, overwrite = false, multiline, rows, ...other } = props;
   const typedRef = ref as React.MutableRefObject<HTMLInputElement>;
 
   const onAccept = (value: any) => {
     onChange({ target: { name: props.name, value } });
   };
+
+  if (multiline) {
+    return <textarea {...other} />;
+  }
 
   return <IMaskInput {...other} inputRef={typedRef} onAccept={onAccept} unmask overwrite={overwrite} radix="." />;
 });

@@ -1,4 +1,5 @@
 import { IBaseModel } from '../base.model';
+import { ProjectModel } from '../project/project.model';
 
 export interface UserModel extends IBaseModel {
   email: string;
@@ -7,4 +8,5 @@ export interface UserModel extends IBaseModel {
   id: string;
   token: string;
   picture: string;
+  projects: ProjectModel[];
 }

@@ -10,6 +10,7 @@ export const initialAuthenticationState: IAuthenticationState = {
   token: '',
   picture: '',
   userName: '',
+  projects: [],
 };
 
 export const authenticationSlice = createSlice({

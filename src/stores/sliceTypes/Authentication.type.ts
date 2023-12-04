@@ -1,3 +1,5 @@
+import { ProjectModel } from '@/types/models/project/project.model';
+
 export interface IAuthenticationState {
   email: string;
   userName: string;
@@ -5,4 +7,5 @@ export interface IAuthenticationState {
   id: string;
   token: string;
   picture: string;
+  projects: ProjectModel[];
 }
