@@ -1,10 +1,10 @@
 import { FC, useContext, useEffect, useState } from 'react';
 import { UserAgentContext } from '@/stores/contexts/userAgent.context.ts';
-import * as Styled from '../log.styles';
 import { FormFilledInput, FormFilledSelect, FormFilledSelectValueMapping } from '@/libs/forms/formFilledComponents';
-import { createLogFormFields, useCreateLogForm } from '../forms/CreateLogForm';
 import { useAuth } from '@/hooks/authentication/useAuth.hook';
 import { ProjectModel } from '@/types/models/project/project.model';
+import { createLogFormFields, useCreateLogForm } from '../forms/CreateLogForm';
+import * as Styled from '../log.styles';
 
 interface CreateLogDrawerProps {
   trigger: boolean;
@@ -16,7 +16,7 @@ export const CreateLogDrawer: FC<CreateLogDrawerProps> = ({ trigger, onClose }) 
   const { user } = useAuth();
   const projectOptions = projectsToOptions(user.projects);
   const { isIos } = useContext(UserAgentContext);
-  const { handleSubmit, control } = useCreateLogForm({});
+  const { control } = useCreateLogForm({});
 
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {

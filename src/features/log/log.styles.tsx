@@ -33,7 +33,7 @@ export const DrawerContent = styled(Box)(({ theme }) => ({
   height: '100%',
 }));
 
-export const CreateButton = styled(Button)(({ theme }) => ({
+export const CreateButton = styled(Button)(({}) => ({
   // position: 'relative',
   // bottom: theme.spacing(2),
 }));
