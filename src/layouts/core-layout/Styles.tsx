@@ -22,6 +22,12 @@ export const CoreRow = styled(Box)<{ width?: string }>(({ width }) => ({
   width: width || 'auto',
 }));
 
+export const CoreColumn = styled(Box)<{ width?: string }>(({ width }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  width: width || 'auto',
+}));
+
 export const CoreLayoutOutlet = styled(Box)`
   display: flex;
   flex-direction: column;
