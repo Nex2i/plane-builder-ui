@@ -32,7 +32,8 @@ export const CreateLogDrawer: FC<CreateLogDrawerProps> = ({ trigger, onClose }) 
       onOpen={toggleDrawerOpen}
       disableDiscovery={isIos}
     >
-      IM IN A DRAWER
+      <Styled.Puller />
+      <Styled.DrawerContent>IM IN A DRAWER</Styled.DrawerContent>
     </Styled.BottomDrawer>
   );
 };
