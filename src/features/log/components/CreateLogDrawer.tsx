@@ -1,6 +1,5 @@
-import { Drawer } from '@mui/material';
-import { UserAgentContext } from '@/stores/contexts/userAgent.context.ts';
 import { FC, useContext, useEffect, useState } from 'react';
+import { UserAgentContext } from '@/stores/contexts/userAgent.context.ts';
 import * as Styled from '../log.styles';
 
 interface CreateLogDrawerProps {

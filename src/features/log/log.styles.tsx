@@ -2,7 +2,7 @@ export * from '@/common/style';
 
 import { Box, SwipeableDrawer, styled } from '@mui/material';
 
-export const BottomDrawer = styled(SwipeableDrawer)(({ theme }) => ({
+export const BottomDrawer = styled(SwipeableDrawer)(({}) => ({
   width: '100vw',
 }));
 

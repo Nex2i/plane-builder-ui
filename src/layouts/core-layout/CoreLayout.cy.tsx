@@ -9,6 +9,7 @@ describe('CoreLayout', () => {
   const defaultUserAgentContext = {
     isMobile: false,
     userAgentName: 'Chrome',
+    isIos: true,
   };
 
   function getComponent(
@@ -47,6 +48,7 @@ describe('CoreLayout', () => {
     const webUserAgentContext = {
       isMobile: false,
       userAgentName: 'Chrome',
+      isIos: false,
     };
 
     it('should render top navigation when user agent is not mobile', () => {
@@ -61,6 +63,7 @@ describe('CoreLayout', () => {
     const mobileUserAgentContext = {
       isMobile: true,
       userAgentName: 'iPhone',
+      isIos: true,
     };
 
     it('should render bottom navigation when user agent is mobile', () => {

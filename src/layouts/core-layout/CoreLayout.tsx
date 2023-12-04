@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 import { Routes } from 'react-router-dom';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { UserAgentContext } from '@/stores/contexts/userAgent.context.ts';
 import * as Styles from './Styles';
 import { CoreAppbar } from './CoreAppbar.tsx';

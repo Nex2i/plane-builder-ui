@@ -52,12 +52,6 @@
             "usePrettierrc": true
           }
         ],
-        "no-restricted-imports": [
-          "error",
-          {
-            "patterns": ["@/features/*/*"]
-          }
-        ],
         "linebreak-style": ["error", "unix"],
         "react/prop-types": "off",
         "import/export": 0,

@@ -6,8 +6,8 @@ import ListAltIcon from '@mui/icons-material/ListAltOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { useLocation, useNavigate } from 'react-router-dom';
-import * as Styled from './Styles';
 import { CreateLogDrawer } from '@/features/log/components/CreateLogDrawer';
+import * as Styled from './Styles';
 
 export default function CoreBottomNavigation() {
   const location = useLocation();
