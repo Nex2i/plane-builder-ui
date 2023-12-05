@@ -21,18 +21,18 @@ export const CoreLayout: FC<coreLayoutProps> = ({ children, title }) => {
   return (
     <Styles.CoreLayoutContainer>
       {!isMobile && <CoreAppbar />}
-      <Styles.CoreRow>
+      <Styles.CoreColumn>
+        {title && (
+          <Styles.CoreRow width="80%">
+            <Typography align="left" variant="h2">
+              {title}
+            </Typography>
+          </Styles.CoreRow>
+        )}
         <Styles.CoreLayoutOutlet ref={parent}>
-          {title && (
-            <Styles.CoreRow width="100%">
-              <Typography align="left" variant="h2">
-                {title}
-              </Typography>
-            </Styles.CoreRow>
-          )}
           <Routes>{children}</Routes>
         </Styles.CoreLayoutOutlet>
-      </Styles.CoreRow>
+      </Styles.CoreColumn>
       {isMobile && <CoreBottomNavigation />}
     </Styles.CoreLayoutContainer>
   );

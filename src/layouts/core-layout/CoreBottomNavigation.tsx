@@ -6,12 +6,14 @@ import ListAltIcon from '@mui/icons-material/ListAltOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { useLocation, useNavigate } from 'react-router-dom';
+import { CreateLogDrawer } from '@/features/log/components/CreateLogDrawer';
 import * as Styled from './Styles';
 
 export default function CoreBottomNavigation() {
   const location = useLocation();
   const navigate = useNavigate();
   const [value, setValue] = useState('logs');
+  const [toggleCreateLogDrawer, setToggleCreateLogDrawer] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,10 +25,11 @@ export default function CoreBottomNavigation() {
   function navigationActionClick(_event: SyntheticEvent, value: string) {
     switch (value) {
       case 'logs':
-        navigate('/log/asdasdasd');
+        navigate('/log');
         break;
       case 'create':
         //OPEN DRAWER
+        setToggleCreateLogDrawer(true);
         break;
       case 'profile':
         navigate('/profile');
@@ -38,16 +41,19 @@ export default function CoreBottomNavigation() {
   }
 
   return (
-    <Box sx={{ pb: 7 }} ref={ref} data-cy="core-bottom-navigation">
-      <CssBaseline />
-      <Paper sx={{ position: 'fixed', bottom: 8, left: 0, right: 0 }} elevation={3}>
-        <Styled.BottomNavigationContainer showLabels value={value} onChange={navigationActionClick}>
-          <Styled.BottomNavigationButton value={'logs'} label="My Logs" icon={<ListAltIcon />} />
-          <Styled.CreateAction value={'create'} label="Create Log" icon={<Styled.CreateActionIcon />} />
-          <Styled.BottomNavigationButton value={'profile'} label="Profile" icon={<AccountCircleIcon />} />
-        </Styled.BottomNavigationContainer>
-      </Paper>
-    </Box>
+    <>
+      <Box sx={{ pb: 7 }} ref={ref} data-cy="core-bottom-navigation">
+        <CreateLogDrawer trigger={toggleCreateLogDrawer} onClose={setToggleCreateLogDrawer} />
+        <CssBaseline />
+        <Paper sx={{ position: 'fixed', bottom: 8, left: 0, right: 0 }} elevation={3}>
+          <Styled.BottomNavigationContainer showLabels value={value} onChange={navigationActionClick}>
+            <Styled.BottomNavigationButton value={'logs'} label="My Logs" icon={<ListAltIcon />} />
+            <Styled.CreateAction value={'create'} label="Create Log" icon={<Styled.CreateActionIcon />} />
+            <Styled.BottomNavigationButton value={'profile'} label="Profile" icon={<AccountCircleIcon />} />
+          </Styled.BottomNavigationContainer>
+        </Paper>
+      </Box>
+    </>
   );
 }
 

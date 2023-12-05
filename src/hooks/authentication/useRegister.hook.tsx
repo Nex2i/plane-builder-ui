@@ -4,7 +4,7 @@ import { HttpStatusCodes } from '@/libs/http/http.config';
 import { setSnackbarProps } from '@/stores/slices/SnackBar.slice';
 import { useAppDispatch } from '@/stores/store.hooks';
 import { setAuthentication } from '@/stores/slices/Authentication.slice';
-import { RegisterUserPayload } from '@/apis/authentication.api';
+import { RegisterUserPayload } from '@/apis/authentication/RegisterUserPayload';
 
 export enum registerActions {
   login = 'login',
@@ -48,6 +48,7 @@ export function useRegister(userPayload: RegisterUserPayload): hookResponse {
             picture: res.picture,
             email: res.email,
             userName: res.userName,
+            projects: res.projects,
           })
         );
 

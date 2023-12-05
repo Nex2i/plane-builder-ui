@@ -48,6 +48,7 @@ export function useLogin(username: string, password: string): hookResponse {
             picture: res.picture,
             email: res.email,
             userName: res.userName,
+            projects: res.projects,
           })
         );
 
